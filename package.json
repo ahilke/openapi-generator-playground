@@ -12,7 +12,8 @@
         "url": "https://github.com/ahilke/openapi-generator-playground.git"
     },
     "scripts": {
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write .",
+        "generate:discriminated-unions:axios": "openapi-generator-cli generate -i discriminated-unions/openapi.yaml -g typescript-axios -o discriminated-unions/axios"
     },
     "devDependencies": {
         "@openapitools/openapi-generator-cli": "^2.1.26",

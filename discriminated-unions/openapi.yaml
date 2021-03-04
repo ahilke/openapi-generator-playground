@@ -1,0 +1,68 @@
+openapi: 3.0.3
+
+info:
+    title: Pet API
+    version: 1.0.0
+
+paths:
+    /pets:
+        get:
+            responses:
+                200:
+                    description: List all pets.
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    pets:
+                                        type: array
+                                        items:
+                                            $ref: "#/components/schemas/Pet"
+
+components:
+    schemas:
+        Pet:
+            type: object
+            anyOf:
+              - $ref: '#/components/schemas/Cat'
+              - $ref: '#/components/schemas/Dog'
+        Cat:
+            description: A representation of a cat.
+            type: object
+            properties:
+                petType:
+                    type: string
+                    enum: ["cat"]
+                name:
+                    type: string
+                huntingSkill:
+                    type: string
+                    description: The measured skill for hunting
+                    enum:
+                        - clueless
+                        - lazy
+                        - adventurous
+                        - aggressive
+            required:
+                - petType
+                - name
+                - huntingSkill
+        Dog:
+            description: A representation of a dog.
+            properties:
+                petType:
+                    type: string
+                    enum: ["dog"]
+                name:
+                    type: string
+                packSize:
+                    type: integer
+                    format: int32
+                    description: the size of the pack the dog is from
+                    default: 0
+                    minimum: 0
+            required:
+                - petType
+                - name
+                - packSize
