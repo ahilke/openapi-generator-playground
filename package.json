@@ -1,0 +1,22 @@
+{
+    "name": "openapi-generator-playground",
+    "description": "A playground for  OpenAPITools/openapi-generator.",
+    "version": "0.0.0",
+    "author": {
+        "name": "Arno Hilke",
+        "email": "arno.hilke@tum.de"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahilke/openapi-generator-playground.git"
+    },
+    "scripts": {
+        "prettier": "prettier --write .",
+        "generate:discriminated-unions:axios": "openapi-generator-cli generate -i discriminated-unions/openapi.yaml -g typescript-axios -o discriminated-unions/axios"
+    },
+    "devDependencies": {
+        "@openapitools/openapi-generator-cli": "^2.1.26",
+        "prettier": "^2.2.1"
+    }
+}
